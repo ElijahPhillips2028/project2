@@ -14,5 +14,26 @@ TEST_CASE("Test recursion", "[FindPalindrome]"){
 	REQUIRE(b.number() == 6);
 }
 
-/* Your test cases here */
+TEST_CASE("Test recursion 2", "[FindPalindrome]"){
+	FindPalindrome b;
+
+	REQUIRE(b.add("Borrow"));
+	REQUIRE(b.add("or"));
+	REQUIRE(b.add("Rob"));
+	REQUIRE(b.number() == 11);
+}
+
+TEST_CASE("Test recursion 3", "[FindPalindrome]"){
+	FindPalindrome b;
+
+	REQUIRE(b.add("Murder"));
+	REQUIRE(b.add("for"));
+	REQUIRE(b.add("a"));
+	REQUIRE(b.add("jar"));
+	REQUIRE(b.add("of"));
+	REQUIRE(b.add("red"));
+	REQUIRE(b.add("rum"));	
+	int a =  3+3+2+3+1+3+6; 		
+	REQUIRE(b.number() == a);
+}
 

@@ -92,7 +92,7 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 			amountOfChars[tolower(letter) - 'a']++;
 		}
 	}
-	int amountOfLettersOdd;
+	int amountOfLettersOdd =0 ;
 	//go through each leter 
 	for (int i = 0 ; i <26; i++){
 		//check if its odd
@@ -113,7 +113,7 @@ bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
 	/*check for each the two hald string one small and one large*/
 	/*assuming the word vectors where allready sliced for me?*/
 
-int correctTimes;
+int correctTimes =0 ;
 	for(int i = 0 ; i < wordVector1.size(); i++){
 		if(wordVector1[i] == wordVector2[wordVector2.size()-1-i]){
 			correctTimes++;
@@ -132,19 +132,32 @@ bool FindPalindrome::add(const std::string & newWord)
 	}
 	//realy bad number checker
 	for(int i = 0 ; i < newWord.size(); i++){
-		if(newWord[i] == (0 || 1 || 2|| 3||4||5||6||7||8||9)){
+		if(isdigit(newWord[i])){
 			return false;
 		}
 	}
 	wordList.push_back(newWord);
+	return true;
 }
 
 bool FindPalindrome::add(const std::vector<std::string> & wordVector)
 {
-	//leave all the error checking for the other add 
-	for (int i = 0 ; i < wordVector.size() ; i++){
-		add(wordVector[i]); 
-	}
+	/*error checking*/
+	for (int i = 0; i< wordVector.size(); i++){
+		if(wordVector[i] == ""){
+			return false;
+		}
+	
+
+	for (int j = 0; j < wordVector.size(); j++){
+		if(isdigit(wordVector[i][j])){
+			return false;
+		}
+	}	
+}
+    for (int i = 0; i < wordVector.size(); i++){
+        wordList.push_back(wordVector[i]);
+    }
 	return true;
 }
 
