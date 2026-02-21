@@ -82,7 +82,7 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 		}
 	}
 	int amountOfLettersOdd;
-	//go throughj each leter 
+	//go through each leter 
 	for (int i = 0 ; i <26; i++){
 		//check if its odd
 		if(amountOfChars[i] % 2 != 0){
@@ -99,10 +99,20 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
                               const std::vector<std::string> & wordVector2)
 {
-	// TODO 
+	/*check for each the two hald string one small and one large*/
+	/*assuming the word vectors where allready sliced for me?*/
+
+int correctTimes;
+	for(int i = 0 ; i < wordVector1.size(); i++){
+		if(wordVector1[i] == wordVector2[wordVector2.size()-1-i]){
+			correctTimes++;
+		}
+	}
+	if(wordVector1.size() == correctTimes){
+		return true;
+	}
 	return false;
 }
-
 bool FindPalindrome::add(const std::string & newWord)
 {
 	// TODO 
