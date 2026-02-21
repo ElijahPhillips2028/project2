@@ -59,7 +59,6 @@ FindPalindrome::~FindPalindrome()
 int FindPalindrome::number() const
 {
 	// TODO 
-
 	return sentences.size();
 }
 
@@ -116,18 +115,30 @@ int correctTimes;
 bool FindPalindrome::add(const std::string & newWord)
 {
 	// TODO 
+	if(newWord  == ""){
 	return false;
+	}
+	//realy bad number checker
+	for(int i = 0 ; i < newWord.size(); i++){
+		if(newWord[i] == (0 || 1 || 2|| 3||4||5||6||7||8||9)){
+			return false;
+		}
+	}
+	wordList.push_back(newWord);
 }
 
 bool FindPalindrome::add(const std::vector<std::string> & wordVector)
 {
-	// TODO 
-	return false;
+	//leave all the error checking for the other add 
+	for (int i = 0 ; i < wordVector.size() ; i++){
+		add(wordVector[i]); 
+	}
+	return true;
 }
 
 std::vector< std::vector<std::string> > FindPalindrome::toVector() const
 {
 	// TODO
-	return std::vector< std::vector<std::string> >();
+	return sentences;
 }
 
