@@ -1,0 +1,12 @@
+[
+{
+  "directory": "C:/Users/elilp/Downloads/project2/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\test-FindPalindrome.dir\\FindPalindrome.cpp.obj -c C:\\Users\\elilp\\Downloads\\project2\\project2\\FindPalindrome.cpp",
+  "file": "C:/Users/elilp/Downloads/project2/project2/FindPalindrome.cpp"
+},
+{
+  "directory": "C:/Users/elilp/Downloads/project2/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\test-FindPalindrome.dir\\test_FindPalindrome.cpp.obj -c C:\\Users\\elilp\\Downloads\\project2\\project2\\test_FindPalindrome.cpp",
+  "file": "C:/Users/elilp/Downloads/project2/project2/test_FindPalindrome.cpp"
+}
+]

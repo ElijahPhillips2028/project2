@@ -1,0 +1,5 @@
+C:/Users/elilp/Downloads/project2/build/CMakeFiles/test-FindPalindrome.dir
+C:/Users/elilp/Downloads/project2/build/CMakeFiles/submission.dir
+C:/Users/elilp/Downloads/project2/build/CMakeFiles/test.dir
+C:/Users/elilp/Downloads/project2/build/CMakeFiles/edit_cache.dir
+C:/Users/elilp/Downloads/project2/build/CMakeFiles/rebuild_cache.dir
