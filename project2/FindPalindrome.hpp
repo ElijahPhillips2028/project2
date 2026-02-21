@@ -8,8 +8,8 @@ class FindPalindrome{
 
 private:
 	/* Define additional private members here as needed */ 
-	
-
+	std::vector<std::string> wordList;
+	std::vector< std::vector<std::string> > sentences;
 	/** Find and test all possible combinations of the words that have been
 	 * added to the FindPalindrome instance. Must call itself recursively. 
 	 * Do not change the signature of this function */
@@ -89,3 +89,4 @@ public:
 };
 
 #endif
+ 

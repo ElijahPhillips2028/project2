@@ -21,6 +21,7 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
         candidateSentence, std::vector<std::string> remainingWords)
 {
 	// TODO implement this recursive function!
+
 	return;
 }
 
@@ -42,29 +43,57 @@ bool FindPalindrome::isPalindrome(std::string testString) const
 
 FindPalindrome::FindPalindrome()
 {
-	// TODO 
+	//make the varibles then clear them out
+	wordList.clear();
+	sentences.clear();
+
 }
 
 FindPalindrome::~FindPalindrome()
 {
-	// TODO 
+	/*destuctor */
+	wordList.clear();
+	sentences.clear();
 }
 
 int FindPalindrome::number() const
 {
 	// TODO 
-	return 0;
+
+	return sentences.size();
 }
 
 void FindPalindrome::clear()
 {
 	// TODO 
+	sentences.clear();
 }
 
 bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 {
+	//set up a vector for the charters ther are 26 leters in the alphabet
+	int amountOfChars[26] = {0};
 	// TODO 
-	return false;
+	for(const std::string& word : wordVector){
+		/*go through the line and place them in their own place*/
+		for(char letter : word){
+			/*make sure all of the leters are lowercase the go from a to b,c,d,etc..*/
+			amountOfChars[tolower(letter) - 'a']++;
+		}
+	}
+	int amountOfLettersOdd;
+	//go throughj each leter 
+	for (int i = 0 ; i <26; i++){
+		//check if its odd
+		if(amountOfChars[i] % 2 != 0){
+			amountOfLettersOdd++;
+		}
+	}
+
+	if (amountOfLettersOdd > 1){
+		return false;
+	}
+	return true;
 }
 
 bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
