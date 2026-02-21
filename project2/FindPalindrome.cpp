@@ -21,7 +21,19 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
         candidateSentence, std::vector<std::string> remainingWords)
 {
 	// TODO implement this recursive function!
+	for (int i = 0 ; i < remainingWords.size(); i++){
+		/*go through each of the remaning words to check if its a palendrom*/
+		if(isPalindrome(remainingWords[i]) == true){
+			candidateSentence.push_back(remainingWords[i]);
+		}
+	}
 
+std::string fullSentence = "";
+for(const std::string& addingTheWord : candidateSentence){
+	
+    fullSentence += addingTheWord;
+}
+isPalindrome(fullSentence);
 	return;
 }
 
