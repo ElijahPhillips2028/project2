@@ -20,21 +20,32 @@ static void convertToLowerCase(std::string & value)
 void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
         candidateSentence, std::vector<std::string> remainingWords)
 {
-	// TODO implement this recursive function!
-	for (int i = 0 ; i < remainingWords.size(); i++){
-		/*go through each of the remaning words to check if its a palendrom*/
-		if(isPalindrome(remainingWords[i]) == true){
-			candidateSentence.push_back(remainingWords[i]);
-		}
+    if(remainingWords.empty()){
+        std::string fullSentence = "";
+        for(const std::string& word : candidateSentence){
+            fullSentence += word;
+        }
+        
+        if(isPalindrome(fullSentence)){
+            sentences.push_back(candidateSentence);  
+        }
+        return;
+    }
+    
+    for(int i = 0; i < remainingWords.size(); i++){
+        std::vector<std::string> newCandidate = candidateSentence;
+        newCandidate.push_back(remainingWords[i]);
+        
+        std::vector<std::string> newRemaining;
+        for(int j = 0; j < remainingWords.size(); j++){
+            if(i != j){  
+                newRemaining.push_back(remainingWords[j]);
+            }
+        }
+        
+        // Recurse with new vectors
+        recursiveFindPalindromes(newCandidate, newRemaining);
 	}
-
-std::string fullSentence = "";
-for(const std::string& addingTheWord : candidateSentence){
-	
-    fullSentence += addingTheWord;
-}
-isPalindrome(fullSentence);
-	return;
 }
 
 bool FindPalindrome::isPalindrome(std::string testString) const
@@ -70,8 +81,8 @@ FindPalindrome::~FindPalindrome()
 
 int FindPalindrome::number() const
 {
-	// TODO 
-	return sentences.size();
+
+return sentences.size();
 }
 
 void FindPalindrome::clear()
@@ -130,13 +141,22 @@ bool FindPalindrome::add(const std::string & newWord)
 	if(newWord  == ""){
 	return false;
 	}
-	//realy bad number checker
+	// number checker
 	for(int i = 0 ; i < newWord.size(); i++){
-		if(isdigit(newWord[i])){
+		if(isdigit(newWord[i] || isspace(newWord[i]))){
 			return false;
 		}
 	}
+	/*looking for duplicate words*/
+ 	 for(const std::string& word : wordList){
+		/*compairs the new word to the old one*/
+        if(word == newWord){
+            return false; 
+        }
+    }
 	wordList.push_back(newWord);
+	sentences.clear();
+    recursiveFindPalindromes({}, wordList);
 	return true;
 }
 
@@ -157,7 +177,10 @@ bool FindPalindrome::add(const std::vector<std::string> & wordVector)
 }
     for (int i = 0; i < wordVector.size(); i++){
         wordList.push_back(wordVector[i]);
+
     }
+	sentences.clear();
+    recursiveFindPalindromes({}, wordList);
 	return true;
 }
 

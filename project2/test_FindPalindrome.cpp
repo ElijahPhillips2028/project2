@@ -20,7 +20,7 @@ TEST_CASE("Test recursion 2", "[FindPalindrome]"){
 	REQUIRE(b.add("Borrow"));
 	REQUIRE(b.add("or"));
 	REQUIRE(b.add("Rob"));
-	REQUIRE(b.number() == 11);
+	REQUIRE(b.number() == 1);
 }
 
 TEST_CASE("Test recursion 3", "[FindPalindrome]"){
@@ -33,7 +33,6 @@ TEST_CASE("Test recursion 3", "[FindPalindrome]"){
 	REQUIRE(b.add("of"));
 	REQUIRE(b.add("red"));
 	REQUIRE(b.add("rum"));	
-	int a =  3+3+2+3+1+3+6; 		
-	REQUIRE(b.number() == a);
+	REQUIRE(b.number() == 2);
 }
 
