@@ -170,11 +170,23 @@ bool FindPalindrome::add(const std::vector<std::string> & wordVector)
 	
 
 	for (int j = 0; j < wordVector.size(); j++){
-		if(isdigit(wordVector[i][j])){
+		if(isdigit(wordVector[i][j] || isspace(wordVector[i][j]))){
 			return false;
 		}
 	}	
+	/*checing for duplicates for both vectors and from the words*/
+    for(const std::string& word : wordList){
+            if(word == wordVector[i]){
+                return false;
+            }
+        }
+	for(int k = i + 1; k < wordVector.size(); k++){
+            if(wordVector[i] == wordVector[k]){
+                return false;
+            }
+        }
 }
+/*adding the words*/
     for (int i = 0; i < wordVector.size(); i++){
         wordList.push_back(wordVector[i]);
 
